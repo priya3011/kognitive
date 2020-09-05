@@ -1,0 +1,24 @@
+<div class="component app-auth-login">
+  <mat-card>
+    <div class="logo-container">
+      <img mat-card-image src="../../assets/images/logo.jpg" />
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label><i class="far fa-user"></i><span class="employee-id">Your Employee ID</span></mat-label>
+        <input matInput formControlName="employeeID" type="text" autocomplete="employeeID">
+        <mat-error *ngIf="f.employeeID.invalid">Employee ID is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label><i class="fa fa-lock"></i><span class="password">Password</span></mat-label>
+        <input matInput formControlName="password" type="password" autocomplete="current-password">
+        <mat-error *ngIf="f.password.invalid">Password is required</mat-error>
+      </mat-form-field>
+      <button *ngIf="!loading" mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+      <div *ngIf="loading" class="spinner-wrapper">
+        <mat-spinner></mat-spinner>
+      </div>
+    </form>
+  </mat-card>
+
+</div>

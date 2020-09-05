@@ -1,0 +1,40 @@
+@import "../../../styles-variables";
+
+.task {
+  margin: 1rem;
+
+  &-title {}
+
+  &-due-dt {
+    padding: 0 1rem;
+    font-weight: bold;
+    color: $color-orange-red;
+
+    &-arrow {
+      color: $color-grey-500;
+    }
+  }
+
+  mat-expansion-panel {
+    display: contents;
+  }
+  p {
+      font-size: 1.5rem;
+      font-weight: 500;
+  }
+}
+mat-label {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+.fa-circle {
+  color: $color-orange-red;
+}
+
+.critical {
+  background-color: $color-orange-red;
+}
+
+.all {
+  background-color: $color-blue-900;
+}

@@ -1,0 +1,31 @@
+@import "../../../styles-variables";
+
+.app-auth-login {
+  .logo-container {
+    text-align: center;
+
+    img {
+      width: 50%;
+    }
+  }
+
+  form {
+    align-items: center;
+
+    .employee-id,
+    .password {
+      padding: 0 2rem;
+    }
+
+    mat-form-field {
+      min-width: 70%;
+    }
+
+    button {
+      background-color: $color-blue-300;
+      color: $color-white;
+      min-width: 30%;
+      border-radius: 2rem;
+    }
+  }
+}

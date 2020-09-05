@@ -1,0 +1,28 @@
+<div class="component app-list">
+    <app-header></app-header>
+
+<!-- <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"> -->
+  <mat-card>
+
+    <div class="overview-section">
+      <div class="control-bar"></div>
+      <mat-toolbar class="control-bar">
+        <mat-toolbar-row>
+          <span class="mat-label task-btn mytask">My Tasks</span>
+          <span class="task-toolbar-spacer"></span>
+          <app-menu-button></app-menu-button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <div class="progress-bar-container">
+        <mat-label>Today"s Progress</mat-label>
+        <div class="progress-bar"><span class="percentage">{{completedPercentage}}%</span><mat-progress-bar mode="determinate" color="orange" value="{{completedPercentage}}"></mat-progress-bar></div>
+      </div>
+    </div>
+    <app-task-view [name]="'Critical'" [noOfTasks]="noOfCriticalTasks" [taskList]="criticalTasks"></app-task-view>
+
+    <app-task-view [name]="'All'" [noOfTasks]="noOfAllTasks" [taskList]="allTasks"></app-task-view>
+
+  </mat-card>
+  <!-- </cdk-virtual-scroll-viewport> -->
+</div>
+<app-footer></app-footer>

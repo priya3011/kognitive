@@ -1,0 +1,38 @@
+@import "../../../styles-variables";
+
+.app-list {
+  .example-viewport {
+  height: 100%;
+}
+
+  mat-card {
+    border-radius: 14px;
+  }
+
+  .progress-bar-container{
+      .mat-progress-bar{
+          height: 12px;
+          border-radius: 1rem;
+          width: 80vw;
+      }
+
+      .progress-bar{
+          display: flex;
+          justify-content: flex-end;
+          padding: 1rem 0.5rem;
+
+          .percentage{
+              font-weight: bold;
+          }
+      }
+  }
+
+  mat-label {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+
+  .mytask {
+    background-color: $color-purple;
+  }
+}

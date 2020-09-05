@@ -1,0 +1,25 @@
+<div class="tasks-view-container">
+  <mat-toolbar class="control-bar">
+    <mat-toolbar-row>
+      <span class="mat-label task-btn" [ngClass]="className">{{name}} {{noOfTasks}}</span>
+      <span class="task-toolbar-spacer"></span>
+      <app-menu-button></app-menu-button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div *ngFor="let task of taskList;">
+    <i class="far fa-circle"></i>
+    <mat-accordion hideToggle="true" class="task">
+        <mat-title>
+          <mat-label class="task-title">{{task.attr.title || task.attr.description}}</mat-label>
+        </mat-title>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title><i class="fas fa-chevron-right task-due-dt-arrow"></i><span class="task-due-dt">Due {{getDueDate(task.due_dt)}}</span></mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{task.attr.body}}</p>
+        <p>{{task.attr.type}}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  </div>

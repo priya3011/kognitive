@@ -1,0 +1,28 @@
+// Based on Material Design: https://material.io/design/layout/responsive-layout-grid.html#breakpoints
+$grid-breakpoints: (
+        xs5: 0,
+        xs4: 359px,
+        xs3: 399px,
+        xs2: 479px,
+        xs1: 599px,
+        sm4: 719px,
+        sm3: 839px,
+        sm2: 959px,
+        sm1: 1023px,
+        md2: 1279px,
+        md1: 1439px,
+        lg2: 1599px,
+        lg1: 1919px,
+        xl1: 1920px
+);
+
+$color-white: #ffffff;
+$color-blue-300: #187bdc;
+$color-blue-900: #001b3a;
+$color-purple: #663399;
+$color-orange-red: #f3350a;
+$color-grey-100: #d3d3d3;
+$color-grey-300: #80808029;
+$color-grey-500: #808080;
+$color-green-100: #20b2aa;
+$color-silver: #c0c0c0;

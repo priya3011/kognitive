@@ -1,0 +1,13 @@
+@import "../../../styles-variables";
+
+.footer-container{
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    .fa-home {
+        color: $color-blue-300;
+    }
+}
