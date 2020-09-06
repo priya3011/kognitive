@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, APP_INITIALIZER } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -13,10 +13,16 @@ import { AuthInterceptor } from "./helpers/interceptors/auth.interceptor";
 import { ConsoleLoggerService } from "./utilities/services/console-logger.service";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
+import { AppUpdateService } from "./utilities/services/app-update.service";
+import { PromptComponent } from "./prompt/prompt.component";
+import { PwaService } from "./utilities/services/pwa.service";
+
+const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt();
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PromptComponent
   ],
   imports: [
     BrowserModule,
@@ -24,13 +30,15 @@ import { environment } from "../environments/environment";
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production }),
+    ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production })
   ],
   providers: [
       CookieService,
+      AppUpdateService,
      { provide: LoggerService, useClass: ConsoleLoggerService },
      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+     {provide: APP_INITIALIZER, useFactory: initializer, deps: [PwaService], multi: true}
   ],
   bootstrap: [AppComponent]
 })

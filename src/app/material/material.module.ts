@@ -13,6 +13,7 @@ import { CommonModule } from "@angular/common";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatBadgeModule } from "@angular/material/badge";
 import { ScrollingModule } from "@angular/cdk/scrolling";
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 @NgModule({
   declarations: [],
@@ -31,7 +32,8 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     MatProgressSpinnerModule,
     MatMenuModule,
     MatBadgeModule,
-    ScrollingModule
+    ScrollingModule,
+    MatBottomSheetModule
   ],
   exports: [
       ReactiveFormsModule,
@@ -47,7 +49,8 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
       MatProgressSpinnerModule,
       MatMenuModule,
       MatBadgeModule,
-      ScrollingModule
+      ScrollingModule,
+      MatBottomSheetModule
   ],
   providers: [
 
