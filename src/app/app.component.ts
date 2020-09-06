@@ -8,7 +8,6 @@ import { Title, Meta } from "@angular/platform-browser";
 })
 export class AppComponent implements OnInit {
   title = "kognitive";
-  // offline: boolean;
 
   constructor(
     private metaTags: Meta,
@@ -20,12 +19,5 @@ export class AppComponent implements OnInit {
     this.metaTags.addTags([
       { name: "description", content: "Daily Task Management Application" },
     ]);
-    // window.addEventListener('online',  this.onNetworkStatusChange.bind(this));
-    // window.addEventListener('offline', this.onNetworkStatusChange.bind(this));
   }
-
-  // onNetworkStatusChange() {
-  //   this.offline = !navigator.onLine;
-  //   console.log('offline ' + this.offline);
-  // }
 }

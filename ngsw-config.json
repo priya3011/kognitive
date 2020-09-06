@@ -1,6 +1,19 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "dataGroups": [
+    {
+      "name": "api-performance",
+      "urls": [
+        "/api/v1/task/list"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "3d"
+      }
+    }
+  ],
   "assetGroups": [{
       "name": "app",
       "installMode": "prefetch",
@@ -11,6 +24,10 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap",
+          "https://fonts.googleapis.com/icon?family=Material+Icons"
         ]
       }
     },
@@ -25,19 +42,5 @@
         ]
       }
     }
-  ],
-  "dataGroups": [{
-    "name": "api-performance",
-    "urls": [
-      "/api/v1/*",
-      "https://fonts.googleapis.com/**",
-      "https://fonts.gstatic.com/**"
-    ],
-    "cacheConfig": {
-      "maxSize": 100,
-      "maxAge": "1d",
-      "timeout": "1m",
-      "strategy": "performance"
-    }
-  }]
+  ]
 }
