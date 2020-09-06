@@ -18,6 +18,7 @@
         <div class="progress-bar"><span class="percentage">{{completedPercentage}}%</span><mat-progress-bar mode="determinate" color="orange" value="{{completedPercentage}}"></mat-progress-bar></div>
       </div>
     </div>
+
     <app-task-view [name]="'Critical'" [noOfTasks]="noOfCriticalTasks" [taskList]="criticalTasks"></app-task-view>
 
     <app-task-view [name]="'All'" [noOfTasks]="noOfAllTasks" [taskList]="allTasks"></app-task-view>
