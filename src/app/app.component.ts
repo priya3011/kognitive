@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Title, Meta } from "@angular/platform-browser";
-import { AppUpdateService } from "./utilities/services/app-update.service";
 
 @Component({
   selector: "app-root",
@@ -12,8 +11,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private metaTags: Meta,
-    private titleTags: Title,
-    private appUpdateService: AppUpdateService,
+    private titleTags: Title
   ) { }
 
   ngOnInit(): void {

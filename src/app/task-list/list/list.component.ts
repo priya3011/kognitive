@@ -5,7 +5,7 @@ import { ListService } from "../services/list.service";
 import { ListServiceState } from "../states/list.state";
 import { Task } from "../models/list.model";
 import * as moment from "moment";
-
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: "app-list",
@@ -17,7 +17,8 @@ export class ListComponent implements OnInit, OnDestroy {
   private _criticalTasks: Task[];
   private _allTasks: Task[];
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService,
+              private datePipe: DatePipe) { }
 
   ngOnInit() {
 
@@ -25,7 +26,6 @@ export class ListComponent implements OnInit, OnDestroy {
       state => {
         this.allTasks = state.tasks;
         this.criticalTasks = this.allTasks;
-        console.log(this.allTasks, this.criticalTasks);
       }
     );
     this.listService.list();
@@ -54,12 +54,9 @@ export class ListComponent implements OnInit, OnDestroy {
     return this._criticalTasks;
   }
   set criticalTasks(at) {
-    this._criticalTasks = at.filter(t => t.attr.priority == "High" && t.status == "Pending")
-      .sort((a, b) => {
-        let dateA: any = new Date(a.due_dt);
-        let dateB: any = new Date(b.due_dt);
-        return (dateA - dateB);
-      });
+    const myDate = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+    this._criticalTasks = at.filter(t => t.attr.priority === "High"
+                            && t.status === "Pending" && t.due_dt === myDate );
   }
 
   getTodaysDoneTasks() {
@@ -67,12 +64,11 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   filterDoneTasks(task) {
-    return task.status == "Done";
+    return task.status === "Done";
   }
 
   get completedPercentage() {
-    return 0.20 * 100;
-    // return (this.getTodaysDoneTasks().length/this.allTasks.length)*100;
+    return (this.getTodaysDoneTasks().length/this.allTasks.length)*100;
   }
 
 

@@ -23,8 +23,8 @@ export class AuthInterceptor implements HttpInterceptor {
     if (token && request.url.includes(baseUrl)) {
           request = request.clone({
             setHeaders: {
-              "usertoken": `${token}`,
-              "apptoken": `${appToken}`
+              usertoken: `${token}`,
+              apptoken: `${appToken}`
             }
           });
     }

@@ -25,7 +25,8 @@ export class PwaService {
       });
     }
     if (this.platform.IOS) {
-      const isInStandaloneMode = ("standalone" in window.navigator) && (window.navigator["standalone"]);
+      const standalone = "standalone";
+      const isInStandaloneMode = ("standalone" in window.navigator) && (window.navigator[standalone]);
       if (!isInStandaloneMode) {
         this.openPromptComponent("ios");
       }
@@ -34,9 +35,9 @@ export class PwaService {
 
   openPromptComponent(mobileType: "ios" | "android") {
     timer(3000)
-    .pipe(take(1))
-    .subscribe(() => {
-      this.bottomSheet.open(PromptComponent, { data: { mobileType, promptEvent: this.promptEvent } });
-    });
+      .pipe(take(1))
+      .subscribe(() => {
+        this.bottomSheet.open(PromptComponent, { data: { mobileType, promptEvent: this.promptEvent } });
+      });
   }
 }

@@ -4,6 +4,7 @@ import { TaskListRoutingModule } from "./task-list-routing.module";
 import { ListComponent } from "./list/list.component";
 import { MaterialModule } from "../material/material.module";
 import { CustomModule } from "../custom/custom.module";
+import { DatePipe } from "@angular/common";
 
 @NgModule({
   declarations: [ListComponent],
@@ -16,5 +17,6 @@ import { CustomModule } from "../custom/custom.module";
   exports: [
     ListComponent,
   ],
+  providers: [DatePipe]
 })
 export class TaskListModule { }

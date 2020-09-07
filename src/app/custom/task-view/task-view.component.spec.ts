@@ -27,4 +27,7 @@ describe("TaskViewComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+  it("getDueDate()", () => {
+    expect(component.getDueDate("2020-09-07")).toEqual("Today at 12:00 AM");
+  });
 });

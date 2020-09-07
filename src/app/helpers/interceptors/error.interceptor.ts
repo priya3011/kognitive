@@ -13,7 +13,6 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(catchError(err => {
       switch (err.status) {
         case 401:
-          console.log("i am in 401");
           this.router.navigate([""]);
           break;
         case 403:

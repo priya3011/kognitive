@@ -18,6 +18,7 @@ export class TaskViewComponent implements OnInit {
 
   getDueDate(dueDt) {
       return moment(dueDt).calendar(moment());
+
   }
 
   get className() {

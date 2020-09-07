@@ -6,7 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs/index";
 import { takeUntil } from "rxjs/operators";
-// TODO: This component may be deprecated due to integration of OKTA SAML authentication
+
 @Component({
     selector: "app-auth-login",
     templateUrl: "./login.component.html",
