@@ -33,7 +33,9 @@
   "dataGroups": [{
     "name": "api-performance",
     "urls": [
-      "/api/v1/task/list"
+      "/api/v1/task/list",
+      "https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap",
+      "https://fonts.googleapis.com/icon?family=Material+Icons"
     ],
     "cacheConfig": {
       "strategy": "performance",
